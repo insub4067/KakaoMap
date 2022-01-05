@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33499167139d4e25003051e4b0dc78b3&libraries=services,clusterer,drawing"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33499167139d4e25003051e4b0dc78b3"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33499167139d4e25003051e4b0dc78b3&libraries=services"></script>
+
     <script defer src="../static/script/app.js"></script>
     <title>Document</title>
 </head>
@@ -18,13 +20,28 @@
 
     <!-- Wrapper -->
     <div class="w-4/5 mx-auto flex flex-col justify-center">
+        <!-- KAKAO MAP -->
         <span class="mx-auto text-2xl">KAKAO MAP</span>
-        <div id="map" class="mx-auto h-60 w-60"></div>
-        <p class="flex flex-col justify-center"> 
-            <button onclick="zoomIn()" class="w-1/6 mx-auto border border-black rounded-lg my-px">지도레벨 - 1</button>
-            <button onclick="zoomOut()" class="w-1/6 mx-auto border border-black rounded-lg my-px">지도레벨 + 1</button>
-            <span id="maplevel" class="mx-auto my-px"></span>
-        </p>
+        <div class="map_wrap mx-auto">
+            <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+        
+            <div id="menu_wrap" class="bg_white">
+                <div class="option">
+                    <div>
+                        <form onsubmit="searchPlaces(); return false;">
+                            키워드 : <input type="text" value="POSTECH" id="keyword" size="15"> 
+                            <button type="submit">검색하기</button> 
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <ul id="placesList"></ul>
+                <div id="pagination"></div>
+            </div>
+        </div>
+        <!-- GOOGLE MAP -->
+        <span class="mx-auto text-2xl">GOOGLE MAP</span>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1581.5914966773414!2d126.91588151387526!3d37.55075221463483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c998d8ac8058b%3A0xa613a8d85b1ec60c!2z7ISc6rWQ64-ZIO2aqOyEse2VtOunge2EtO2DgOybjA!5e0!3m2!1sko!2skr!4v1641392497189!5m2!1sko!2skr" class="h-75 w-75 mx-auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
 </body>
